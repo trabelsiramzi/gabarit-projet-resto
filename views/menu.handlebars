@@ -1,3 +1,5 @@
+<!-- views/menu.handlebars -->
+
 <section>
     <h2>Menu</h2>
 
@@ -7,7 +9,12 @@
                 <div class="nom">{{this.nom}}</div>
                 <div class="prix">{{this.prix}} $</div>
                 <img src="{{this.chemin_image}}" alt="{{this.nom}}">
-                <input type="button" value="Ajouter au panier">
+                
+                {{#if userLoggedIn}}
+                    <button class="add-to-cart-btn" data-product-id="{{this.id_produit}}">Ajouter au panier</button>
+                {{else}}
+                    <p>Login to add items to your cart.</p>
+                {{/if}}
             </li>
         {{/each}}
     </ul>

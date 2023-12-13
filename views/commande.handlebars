@@ -1,3 +1,5 @@
+<!-- views/commande.handlebars -->
+
 <section>
     <h2>Commandes</h2>
 
@@ -7,11 +9,13 @@
                 <div class="info">
                     <div class="id">{{this.id_commande}}</div>
                     <div class="date">{{this.date}}</div>
-                    <select>
-                        {{#each ../etatCommande}}
-                            <option value="{{this.id_etat_commande}}" {{#if (equals ../this.id_etat_commande this.id_etat_commande)}}selected{{/if}}>{{this.nom}}</option>
-                        {{/each}}
-                    </select>
+                    {{#if userIsAdmin}}
+                        <select class="etat-commande" data-id-commande="{{this.id_commande}}">
+                            {{#each ../etatCommande}}
+                                <option value="{{this.id_etat_commande}}" {{#if (equals ../this.id_etat_commande this.id_etat_commande)}}selected{{/if}}>{{this.nom}}</option>
+                            {{/each}}
+                        </select>
+                    {{/if}}
                 </div>
                 <table class="produit">
                     <thead>
