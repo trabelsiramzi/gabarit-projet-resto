@@ -1,5 +1,3 @@
-<!-- views/panier.handlebars -->
-
 <section>
     <h2>Panier</h2>
 
@@ -22,16 +20,14 @@
                     <td class="quantite">{{this.quantite}}</td>
                     <td class="prix">{{this.prix}} $</td>
                     <td class="total">{{this.total}} $</td>
-                    <td>
-                        <button class="remove-from-cart-btn" data-product-id="{{this.id_produit}}">&times;</button>
-                    </td>
+                    <td><input type="button" value="&times;"></td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
     <div class="panier-buttons">
-        <button id="soumettre" {{#if estVide}}disabled{{/if}}>Soumettre</button>
-        <button id="vider" {{#if estVide}}disabled{{/if}}>Annuler</button>
+        <input type="button" value="Soumettre" id="soumettre" {{#if estVide}}disabled{{/if}}>
+        <input type="button" value="Annuler" id="vider" {{#if estVide}}disabled{{/if}}>
     </div>
 </section>
 
